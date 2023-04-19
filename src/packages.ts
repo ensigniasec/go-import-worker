@@ -4,12 +4,16 @@ type Pkg = {
 };
 
 export const packages: Record<string, Pkg> = {
-  "/custompkg": {
-    pkg: "ivan.dev/custompkg",
-    repoPath: "ivanvanderbyl/custompkg",
+  "/operator": {
+    pkg: "ensignia.dev/operator",
+    repoPath: "ensigniasec/operator",
   },
-  "/wingtip": {
-    pkg: "ivan.dev/wingtip",
-    repoPath: "ivanvanderbyl/wingtip",
+  "/controlplane": {
+    pkg: "ensignia.dev/controlplane",
+    repoPath: "ensigniasec/controlplane",
+  },
+  "/apiserver": {
+    pkg: "ensignia.dev/apiserver",
+    repoPath: "ensigniasec/apiserver",
   },
 };
