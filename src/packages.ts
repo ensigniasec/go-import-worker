@@ -16,4 +16,8 @@ export const packages: Record<string, Pkg> = {
     pkg: "ensignia.dev/apiserver",
     repoPath: "ensigniasec/apiserver",
   },
+  "/verde": {
+    pkg: "ensignia.dev/verde",
+    repoPath: "ensigniasec/verde",
+  },
 };
