@@ -1,6 +1,6 @@
 import { HTMLResponse } from "@worker-tools/html";
 import { baseLayout, importClause, pkgURL, sourceClause } from "./helpers";
-import { packages } from "./packages";
+import { defaultDomain, defaultOrg, packages } from "./packages";
 
 export interface Env {}
 
@@ -14,15 +14,24 @@ export default {
 
     let pkg = packages[url.pathname];
 
+    // If the package is not found, try to parse the URL as a repo path
     if (pkg == null) {
-      let repo = url.pathname;
-      if (repo.startsWith("/")) {
-        repo = repo.slice(1);
+      let repoName = url.pathname;
+
+      // Might start with /
+      if (repoName.startsWith("/")) {
+        repoName = repoName.slice(1);
+      }
+
+      // If requested path contains a slash after the start
+      // it is not a valid repo name
+      if (repoName.includes("/")) {
+        return new Response("Not found", { status: 404 });
       }
 
       pkg = {
-        pkg: `ivan.dev/${repo}`,
-        repoPath: `ivanvanderbyl/${repo}`,
+        pkg: `${defaultDomain}/${repoName}`,
+        repoPath: `${defaultOrg}/${repoName}`,
       };
     }
 

@@ -21,3 +21,6 @@ export const packages: Record<string, Pkg> = {
     repoPath: "ensigniasec/verde",
   },
 };
+
+export const defaultOrg = "ensigniasec";
+export const defaultDomain = "ensignia.dev";

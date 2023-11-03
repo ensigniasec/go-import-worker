@@ -33,7 +33,7 @@ export function sourceClause(
   repoPath: string,
   defaultBranch: string = "main"
 ) {
-  return `${pkg} https://github.com/${repoPath} https://github.com/${repoPath}/tree/master{/dir} https://github.com/${repoPath}/blob/${defaultBranch}{/dir}/{file}#L{line}`;
+  return `${pkg} https://github.com/${repoPath} https://github.com/${repoPath}/tree/${defaultBranch}{/dir} https://github.com/${repoPath}/blob/${defaultBranch}{/dir}/{file}#L{line}`;
 }
 export function pkgURL(pkg: string) {
   if (pkg.startsWith("/")) pkg = pkg.slice(1);
